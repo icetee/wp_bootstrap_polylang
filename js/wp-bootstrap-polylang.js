@@ -1,4 +1,16 @@
-(function pll_change_language_nav() {
+/*
+*
+*   Polylang Create Bootstrap Dropdown - WordPress
+*   Github: https://github.com/icetee/wp-bootstrap-polylang
+*
+*   I used (Fork):
+*   https://gist.github.com/icetee/5f44c321de44b13b903e
+*
+*   @since 1.0
+*
+*/
+
+(function wp-bootstrap-polylang() {
         
     var $lang = $('html').attr('lang');
     var $navbar = $('.navbar-nav');

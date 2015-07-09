@@ -1,4 +1,5 @@
-function pll_change_language_nav() {
+<?php
+   function pll_change_language_nav() {
     
     if ( function_exists('pll_languages_list') ) {
         
@@ -18,3 +19,4 @@ function pll_change_language_nav() {
     }
 }
 add_action('wp_enqueue_scripts', 'pll_change_language_nav');
+?>

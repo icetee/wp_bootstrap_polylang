@@ -4,11 +4,11 @@
 *   Polylang Create Bootstrap Dropdown - WordPress
 *   Github: https://github.com/icetee/wp-bootstrap-polylang
 *
-*   @since 1.1
+*   @since 1.2
 *
 */
 
-function wp-bootstrap-polylang() {
+function wp_bootstrap_polylang() {
     
     if ( function_exists('pll_languages_list') ) {
         
@@ -20,20 +20,24 @@ function wp-bootstrap-polylang() {
         $postTypes = array("page", "post");
         
         foreach ( pll_languages_list() as $code) {
-            
-            if ( in_array($postType, $postTypes) ) {
-                $lang_list[$code] = get_post(pll_get_post($postID, $code))->post_name;
+            if ( !is_front_page() ) {
+                if ( in_array($postType, $postTypes) ) {
+                    $lang_list[$code] = get_post(pll_get_post($postID, $code))->post_name;
+                } else {
+                    $lang_list[$code] = $postType . '/' . get_post(pll_get_post($postID, $code))->post_name;
+                }
             } else {
-                $lang_list[$code] = $postType . '/' . get_post(pll_get_post($postID, $code))->post_name;
+                $lang_list[$code] = "";
             }
         }
-        
-        wp_enqueue_script('pll_nav', plugin_dir_url( __FILE__ ) . 'js/wp-bootstrap-polylang.js');
+
+        wp_enqueue_script('pll_nav', get_template_directory_uri() . '/js/wp_bootstrap_polylang.js', array(), '1.2', true);
         wp_localize_script('pll_nav', 'pllVars', array(
                 'postID' => $lang_list
             )
         );
     }
 }
-add_action('wp_enqueue_scripts', 'wp-bootstrap-polylang');
+add_action('wp_enqueue_scripts', 'wp_bootstrap_polylang');
+
 ?>

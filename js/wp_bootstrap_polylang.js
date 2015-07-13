@@ -6,7 +6,7 @@
 *   I used (Fork):
 *   https://gist.github.com/icetee/5f44c321de44b13b903e
 *
-*   @since 1.2
+*   @since 1.2.1
 *
 */
 
@@ -19,8 +19,6 @@
     var $changelang = "";
     var lang = {};
     
-    console.log($navitem);
-
     if ( !$navbar.find($navitem).hasClass( "pll-lang" ) ) {
 
         $lang = $lang.split('-')[0];

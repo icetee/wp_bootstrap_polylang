@@ -4,7 +4,7 @@
 *   Polylang Create Bootstrap Dropdown - WordPress
 *   Github: https://github.com/icetee/wp-bootstrap-polylang
 *
-*   @since 1.2.2
+*   @since 1.2.3
 *
 */
 
@@ -25,7 +25,11 @@ function wp_bootstrap_polylang() {
                     if ( !is_tag() ) {
                         $lang_list[$code] = get_post(pll_get_post($postID, $code))->post_name;
                     } else {
-                        $term_id = pll_get_term(get_the_tags(pll_set_term_language($postID, $code))[1]->term_id, $code);
+                        //PHP <5.6 fix
+                        $term_lang = pll_set_term_language($postID, $code);
+                        $get_tags = get_the_tags($term_lang);
+                        $term_id = pll_get_term($get_tags[1]->term_id, $code);
+                        
                         $lang_list[$code] = "tag/" . get_term_by('id', $term_id, 'post_tag')->slug;
                     }
                     

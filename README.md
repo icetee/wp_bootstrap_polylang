@@ -8,7 +8,7 @@ Place **wp-bootstrap-polylang.php** in your WordPress theme folder `/wp-content/
 
 Open your WordPress themes **functions.php** file `/wp-content/your-theme/functions.php` and add the following code:
 
-    require_once('wp-bootstrap-polylang.php');
+    require_once('wp_bootstrap_polylang.php');
 
 ### Requirement ###
 

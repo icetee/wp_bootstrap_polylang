@@ -18,6 +18,8 @@
     var pageId = pllVars.postID;
     var $changelang = "";
     var lang = {};
+    var siteurl = pllVars.url;
+
 
     if (!$navbar.find($navitem).hasClass("pll-lang")) {
 
@@ -35,7 +37,7 @@
         $changelang += '<ul class="dropdown-menu" role="menu">';
 
         $.each(lang, function(key, value) {
-            $changelang += '<li class="lang-item ' + key + '"><a target="_self" href="//' + window.location.host + '/' + key + '/' + pageId[key] + '" title="' + value + '">' + value + '</a></li>';
+            $changelang += '<li class="lang-item ' + key + '"><a class="nav-link" target="_self" href="' + siteurl + '/' + key + '/' + pageId[key] + '" title="' + value + '">' + value + '</a></li>';
         });
 
         $changelang += '</ul></li>';

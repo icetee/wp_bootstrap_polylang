@@ -18,6 +18,8 @@ function wp_bootstrap_polylang() {
             $postID = $wp_query->post->ID;
             $postType = get_post_type($postID);
             $lang_list = array();
+            $url = site_url();
+
 
             $postTypes = array("page", "post");
 
@@ -45,7 +47,8 @@ function wp_bootstrap_polylang() {
 
             wp_enqueue_script('pll_nav', get_template_directory_uri() . '/assets/js/wp_bootstrap_polylang.js', array(), '1.2.4', true);
             wp_localize_script('pll_nav', 'pllVars', array(
-                    'postID' => $lang_list
+                    'postID' => $lang_list,
+                    'url' => $url
                 )
             );
         }

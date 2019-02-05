@@ -4,11 +4,11 @@ Polylang switch language nav (Bootstrap style)
 
 ## Installation ##
 
-Place **wp-bootstrap-polylang.php** in your WordPress theme folder `/wp-content/your-theme/` and place `wp-bootstrap-polylang.js` in your javascripts folder (default: `/wp-content/your-theme/js/`).
+Place **wp-bootstrap-polylang.php** in your WordPress theme folder `/wp-content/your-theme/` and place `wp-bootstrap-polylang.js` in your javascripts folder (default: `/wp-content/your-theme/assets/js/`).
 
 Open your WordPress themes **functions.php** file `/wp-content/your-theme/functions.php` and add the following code:
 
-    require_once('wp_bootstrap_polylang.php');
+    require_once get_template_directory() . '/wp_bootstrap_polylang.php';
 
 ### Requirement ###
 
